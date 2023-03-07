@@ -21,16 +21,15 @@ class SerialGenerator:
         """initializes SerialGenerator.
         Start is where we start generating numbers
         Count is how many we have incremented
-        Count begins at -1 so our first number generated == count
         """
         self.start = start
-        self.count = -1
+        self.count = 0
 
     def generate(self):
         """increment our counter and return a new serial number"""
         self.count += 1
-        return self.start + self.count
+        return self.start + self.count -1
     
     def reset(self):
-        """reset our count to -1 so our first number == start"""
-        self.count = -1
+        """reset our count to 0"""
+        self.count = 0
