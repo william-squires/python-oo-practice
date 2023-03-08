@@ -7,22 +7,28 @@ class WordFinder:
         """Creates a WordFinder with a path to a file with words
            Makes a list with each word in the file as words
            Gets the number of words in the file as num_words"""
+
         self.file_path = file_path
         self.words = self.get_words_from_file()
         self.num_words = len(self.words)
+
         print(f"""{self.num_words} words read.""")
+
+#consider passing file path as param
 
     def get_words_from_file(self):
         """Gets the words from a file and returns them as a list"""
         words = []
+        #reconsider variable name
         f_read = open(self.file_path, "r")
-
+#add comment for slice
+#look into .strip
         for word in f_read:
             words.append(word[:-1:])
-
+#don't need to close explicitly
         f_read.close()
         return words
-
+#missing docstring below
     def get_random_word(self):
         return choice(self.words)
 
@@ -39,7 +45,7 @@ class SpecialWordFinder(WordFinder):
         original_words = super().get_words_from_file()
 
         new_words = []
-
+#consider using comprehension
         for word in original_words:
             if not word.startswith("#") and word:
                 new_words.append(word)
